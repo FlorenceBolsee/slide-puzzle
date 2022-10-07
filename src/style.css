@@ -1,0 +1,107 @@
+root {
+  --x: 0px,
+  --y: 0px
+} 
+
+body {
+  background: #DFFCF7;
+}
+
+.puzzle {
+  font-family: "Architects Daughter"; 
+  font-size: 22px;
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+.puzzle-loading {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.puzzle-loading circle {
+  animation-duration: 1s; 
+  animation-fill-mode: both; 
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+}
+
+.puzzle-loading circle:first-child {
+  animation-delay: .2s;
+}
+
+.puzzle-loading circle:last-child {
+  animation-delay: -.2s;
+}
+
+.puzzle-board {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  border: 2px solid #033E69;
+}
+
+.puzzle-piece {
+  display: block;
+}
+
+.puzzle-piece-container {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transition: .15s ease all;
+  padding: 0;
+  border: 0;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.puzzle-board.unsolved .puzzle-piece-container {
+  box-shadow: 5px 5px 20px rgba(19, 233, 199, 0.5);
+}
+
+.puzzle-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 5px;
+  color: #033E69;
+  line-height: 30px;
+  width: 100%;
+}
+
+.puzzle-win {
+  color: #00AE77;
+  font-size: 24px;
+}
+
+.puzzle-start {
+  padding: 0;
+  background: none;
+  border: 0;
+  margin-left: 10px;
+  font-size: 20px;
+  color: #033E69;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: ease .2s all;
+}
+
+.puzzle-start:hover,
+.puzzle-start:focus {
+  color: #00AE77;
+}
+
+@keyframes bounce { 
+  0%, 100% {transform: translateY(0);} 
+  50% {transform: translateY(-30px);}
+}
+
